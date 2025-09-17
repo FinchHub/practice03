@@ -7,16 +7,27 @@
 
 void saveBalance(const std::string&); 
 double loadBalance(const std::string&);
-bool isValidWithdrawal(double amount);
+bool isValidWithdrawal(double);
 int displayMenu();
 double getBalance();
-
+void deposit (double);
+void deposit (double, std::string);
+bool withdraw (double);
+bool withdraw (double, std::string);
 
 int main() {
+    double depositAmt;
+    std::string description;
+    // loadBalance();
+
     while (1) {
         int menuOption { displayMenu() };
         if ( menuOption == 1) {
-            std::cout << "D: Deposit Money\n";
+
+            std::cout << "Enter amount to deposit: ";
+            std::cin >> depositAmt;
+            std::cin >> description;
+
         } else if (menuOption == 2) {
             std::cout << "D: Withdraw Money\n";
         } else if (menuOption == 3) {
@@ -34,7 +45,7 @@ void saveBalance(const std::string& filename = "account.txt"){
 }
 
 double loadBalance(const std::string& filename = "account.txt"){
-return 0;
+    
 }
 
 bool isValidWithdrawal(double amount){
