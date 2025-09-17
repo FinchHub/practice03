@@ -14,6 +14,7 @@ double getBalance();
 
 int main() {
     return displayMenu();    
+
     return 0;
 }
 
@@ -32,25 +33,27 @@ return 0;
 int displayMenu(){
     int menuOption;
 
-    std::cout << "==========================================\n" 
-              << "        SIMPLE BANK ACCOUNT SYSTEM        \n"
-              << "==========================================\n"
-              << "1. Deposit Money\n"
-              << "2. Withdraw Money\n"
-              << "3. Check Balance\n"
-              << "4. Exit\n"
-              << "==========================================\n"
-              << "Enter your choice (1-4): ";
-    std::cin >> menuOption;
-    
-    if (std::cin.fail()) {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    } else if (menuOption < 1 || menuOption > 4) {
-        std::cout << "Invalid menu option. Enter your choice (1-4).\n";
-    } 
-   return menuOption; 
-
+    while (1) {
+        std::cout << "==========================================\n" 
+                  << "        SIMPLE BANK ACCOUNT SYSTEM        \n"
+                  << "==========================================\n"
+                  << "1. Deposit Money\n"
+                  << "2. Withdraw Money\n"
+                  << "3. Check Balance\n"
+                  << "4. Exit\n"
+                  << "==========================================\n"
+                  << "Enter your choice (1-4): ";
+        std::cin >> menuOption;
+        
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "ERROR: Invalid menu option.\n";
+        } else if (menuOption < 1 || menuOption > 4) {
+            std::cout << "ERROR: Invalid menu option.\n";
+        } 
+    }
+        return menuOption;
 }
 
 double getBalance(){
