@@ -1,7 +1,9 @@
 #include <iostream>
 #include <fstream>
+#include <limits>
 #include <sstream>
 #include <string>
+#include <limits>
 
 void saveBalance(const std::string&); 
 double loadBalance(const std::string&);
@@ -11,7 +13,8 @@ double getBalance();
 
 
 int main() {
-    
+    return displayMenu();    
+    return 0;
 }
 
 void saveBalance(const std::string& filename = "account.txt"){
@@ -19,11 +22,11 @@ void saveBalance(const std::string& filename = "account.txt"){
 }
 
 double loadBalance(const std::string& filename = "account.txt"){
-
+return 0;
 }
 
 bool isValidWithdrawal(double amount){
-
+return 0;
 }
 
 int displayMenu(){
@@ -39,10 +42,17 @@ int displayMenu(){
               << "==========================================\n"
               << "Enter your choice (1-4): ";
     std::cin >> menuOption;
-    std::cout << "D: Entered " << menuOption << std::endl;
     
+    if (std::cin.fail()) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    } else if (menuOption < 1 || menuOption > 4) {
+        std::cout << "Invalid menu option. Enter your choice (1-4).\n";
+    } 
+   return menuOption; 
+
 }
 
 double getBalance(){
-
+    return 0;
 }
