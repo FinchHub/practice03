@@ -13,8 +13,19 @@ double getBalance();
 
 
 int main() {
-    return displayMenu();    
-
+    while (1) {
+        int menuOption { displayMenu() };
+        if ( menuOption == 1) {
+            std::cout << "D: Deposit Money\n";
+        } else if (menuOption == 2) {
+            std::cout << "D: Withdraw Money\n";
+        } else if (menuOption == 3) {
+            std::cout << "D: Check Balance\n";
+        } else if (menuOption == 4) {
+            std::cout << "D: Exit\n";
+            return 0;
+        }
+    }
     return 0;
 }
 
@@ -33,7 +44,6 @@ return 0;
 int displayMenu(){
     int menuOption;
 
-    while (1) {
         std::cout << "==========================================\n" 
                   << "        SIMPLE BANK ACCOUNT SYSTEM        \n"
                   << "==========================================\n"
@@ -52,8 +62,7 @@ int displayMenu(){
         } else if (menuOption < 1 || menuOption > 4) {
             std::cout << "ERROR: Invalid menu option.\n";
         } 
-    }
-        return menuOption;
+    return menuOption;
 }
 
 double getBalance(){
